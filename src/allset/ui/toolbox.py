@@ -183,6 +183,21 @@ def _show_tool_settings_later(window):
     bpy.app.timers.register(later, first_interval=0.0)
 
 
+# Maya: a drag off the Move / Rotate / Scale manipulator is a marquee. The tool's fallback (header "Drag") is saved
+# per workspace and mode; a workspace that had no transform tool yet (a user startup.blend's "General", measured on
+# 5.2.3) gets Blender's Tweak, so the drag moved the selection instead. Tweak becomes Select Box; a Lasso / Circle
+# fallback the user picked stays. Maya's tweak mode is the ` hold (operators/view_keys3.py).
+TRANSFORM_TOOLS = ("builtin.move", "builtin.rotate", "builtin.scale", "builtin.transform")
+TWEAK_FALLBACK = "builtin.select"
+MARQUEE_FALLBACK = "builtin.select_box"
+
+
+def _marquee_fallback(context, original):
+    tool = context.workspace.tools.from_space_view3d_mode(context.mode, create=False)
+    if tool is not None and tool.idname_fallback == TWEAK_FALLBACK:
+        original(context, 'VIEW_3D', MARQUEE_FALLBACK, as_fallback=True)
+
+
 def _make_activate_by_id(original):
     def activate_by_id(context, space_type, idname, *, as_fallback=False):
         if (space_type == 'VIEW_3D' and context.mode == 'PAINT_WEIGHT'
@@ -190,6 +205,8 @@ def _make_activate_by_id(original):
             from ..operators.skin import leave_weight_paint
             leave_weight_paint(context)
         done = original(context, space_type, idname, as_fallback=as_fallback)
+        if done and space_type == 'VIEW_3D' and not as_fallback and idname in TRANSFORM_TOOLS:
+            _marquee_fallback(context, original)
         if done and space_type == 'VIEW_3D' and note_tool_click(context, idname):
             _show_tool_settings_later(getattr(context, "window", None))
         return done
