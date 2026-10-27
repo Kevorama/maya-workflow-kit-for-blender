@@ -591,6 +591,11 @@ def patch_manip_duplicate(kd):
     for km in GIZMO_KEYMAPS:
         _add(kd, km, "allset.manip_duplicate", make_event("LEFTMOUSE", "PRESS", shift=True),
              first=True)
+        # IC's gizmo_tweak here is a plain CLICK_DRAG (ic_5_2.py, "Generic Gizmo Maybe Drag"), so a real Shift+drag matched nothing after
+        # manip_duplicate: no transform ran and the extrusion / copy was taken back as unmoved. Shift = KM_ANY
+        # lets the gizmo take the Shift+drag (window event_simulate drops the modifier on CLICK_DRAG, which hid it).
+        for item in kd.find(km, "gizmogroup.gizmo_tweak", type="LEFTMOUSE", value="CLICK_DRAG"):
+            item[1]["shift"] = -1
 
 
 # --- 22. Delete / Backspace on components (docs/steps/step_24.md 「계획」) ------------------------

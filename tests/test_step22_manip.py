@@ -40,6 +40,18 @@ def test_gizmo_keymaps_run_smart_duplicate_first():
     assert "allset.manip_duplicate" in patches.PASS_THROUGH_FIRST
 
 
+def test_gizmo_tweak_takes_shift_drag():
+    # A real Shift+drag sends CLICK_DRAG with Shift held: the gizmo's tweak must accept it, or the transform never
+    # starts and Smart Duplicate / Extrude take their unmoved result back (GUI simulation drops the modifier).
+    kc = kit.maya_kc()
+    for name in patches.GIZMO_KEYMAPS:
+        tweaks = [k for k in kc.keymaps[name].keymap_items
+                  if k.active and k.idname == "gizmogroup.gizmo_tweak" and k.value == 'CLICK_DRAG']
+        assert tweaks, name
+        assert all(k.shift == -1 and not k.ctrl and not k.alt for k in tweaks), \
+            (name, [(k.shift, k.ctrl, k.alt) for k in tweaks])
+
+
 def test_shift_precision_kept():
     # Measured (GUI): Shift held when the drag starts doesn't turn precision on, so Blender's
     # Shift precision during a drag stays (docs/steps/step_22.md 「계획」 3).
