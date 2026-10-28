@@ -1040,6 +1040,7 @@ GUI 자동 테스트(`python tests/gui/run.py`)가 이벤트 순서는 확인한
 - [ ] Two curves meeting at a corner: Curves > Fillet makes a round corner curve (filletedCurve1) of radius 1 cm; Curves > Attach joins two curves into curveAattachedCurve1 (both originals kept); Curves > Cut on two crossing curves leaves four pieces.
 - [ ] Curves > Rebuild on a hand-drawn curve: 4 spans, the ends stay where they were; Rebuild ❒ opens Rebuild Curve Options with Number of spans 4.
 - [ ] Curve edit mode, select one CV, Curves > Detach: the curve splits near that CV into two objects.
+- [ ] (#208) EP / CV Curve Tool with a curve and a cube in the scene: hold C while clicking near the curve — the point lands on it, and dragging slides along it; hold V — the point lands on the nearest CV / vertex / pivot; middle drag moves the last point (snaps still work); Ctrl+click with the Status Line snap on places a free point.
 
 ## Step 157 — Graph Editor keys in Maya terms
 - [ ] Graph Editor Select > Only Curve, click a key: the whole curve's keys light up; box-drag over two keys of another curve picks that whole curve too. Select > All, click a key: only that key.
