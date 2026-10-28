@@ -1544,3 +1544,10 @@ Blindspots of audit 16 (`docs/steps/step_210_remaining.md` §4) — expected to 
 - [ ] F with a key selected frames the key and both segments touching it; A frames every curve shown.
 - [ ] Shift+middle drag moves keys along time or value only, decided by the first few pixels; plain middle drag
       lands moved keys on whole frames while Time snap is on.
+
+## Issue #205 — drag off the manipulator with a Tweak fallback
+
+- [ ] Blender mode: pick Tweak in the tool header's Drag menu with the Move tool, save the file, turn Maya mode on and
+      reopen it. Without pressing W, a drag in empty space or on the mesh away from the manipulator draws a marquee
+      (Shift toggles, Ctrl removes, Ctrl+Shift adds); nothing moves. Same with E / R and in the UV Editor.
+- [ ] Maya mode off: the same drag tweaks again and the header still says Drag: Tweak (the kit didn't change it).
