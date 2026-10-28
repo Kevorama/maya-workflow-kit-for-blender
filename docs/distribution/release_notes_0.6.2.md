@@ -5,7 +5,7 @@ checklist in `docs/release_checklist.md`.
 
 ---
 
-**0.6.2 — G after an extrude, switching back to Blender, and a few things from your reports** (Blender 4.5 LTS – 5.2)
+**0.6.2 — G after an extrude, switching back to Blender, and a few things from your reports** (Blender 4.5 LTS – 5.2; the last version for Blender 4.5 — 0.7.0 needs Blender 5.0 or newer)
 
 Install it over 0.6.1, 0.6.0 or 0.5.0 as usual; shelves, hotkeys and scenes are kept.
 

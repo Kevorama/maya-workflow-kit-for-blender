@@ -21,7 +21,7 @@ opens with "For Maya users, in Blender" and ends with the trademark notice.
 | Tags (platform list) | User Interface (only — the moderator asked to remove the others, step 130) |
 | License | GPL-3.0-or-later (code); CC0-1.0 (the kit-made images and data files, `ASSETS_LICENSE.txt`) |
 | Copyright | 2026 ohnsk |
-| Supported Blender | 4.5 LTS and 5.0 – 5.2 (4.5.x – 5.2.x; tested on 4.5.4, 5.0.1, 5.1.2, 5.2.2) — manifest `blender_version_min` / `max` (see part D "Versions") |
+| Supported Blender | 5.0 – 5.2 (5.0.x – 5.2.x; tested on 5.0.1, 5.1.2, 5.2.x; 0.6.2 is the last version for 4.5) — manifest `blender_version_min` / `max` (see part D "Versions") |
 | Permissions | `files`: "Your shelves and Maya project folders" (37, no end punctuation). No `network`, no `clipboard`, no `camera` / `microphone` |
 | Platforms | all (pure Python, no `platforms` entry) |
 | Website / support URL | none yet: the repository https://github.com/5hyuns/maya-workflow-kit-for-blender is to be created private, so manifest `website` stays out until it is public; then add it and the tracker URL |
@@ -204,12 +204,11 @@ The other step 122 stills (`01`, `02`, `05`–`10`) stay in `docs/distribution/m
 
 ### Versions
 
-`blender_version_min = "4.5.0"`, `blender_version_max = "5.3.0"` (exclusive): 4.5.x – 5.2.x. Target 4.5 LTS
-(decision 4); step 118 made 5.0 – 5.2 work and measured every minor version's latest release (4.5.4, 5.0.1, 5.1.2,
-5.2.2): the full headless suite, the GUI suite and the clean install → enable → disable → remove round trip pass on each
-(`docs/compat_5x.md`, version differences in one module, `compat.py`). Blender 4.2.23 LTS fails 25 of 869 tests (the
-layout template is saved by 4.5, brush assets are 4.3+, file I/O options differ), so 4.2 – 4.4 are not offered the
-extension, and a Blender after 5.2 is not offered it until it is measured the same way.
+`blender_version_min = "5.0.0"`, `blender_version_max = "5.3.0"` (exclusive): 5.0.x – 5.2.x. Main target 5.2
+(decision 4); every minor version's latest release (5.0.1, 5.1.2, 5.2.x) passes the full headless suite, the GUI suite
+and the clean install → enable → disable → remove round trip (`docs/compat_5x.md`, version differences in one module,
+`compat.py`). From 0.7.0 the extension needs Blender 5.0 or newer: 0.6.2 is the last version for Blender 4.5 LTS
+(user decision 10-29). A Blender after 5.2 is not offered it until it is measured the same way.
 
 ## What happens when you enable it — nothing until you choose Maya
 

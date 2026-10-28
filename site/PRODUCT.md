@@ -7,7 +7,7 @@
 
 ## What it is
 
-A free, open-source (GPL-3.0-or-later) Blender extension, Blender 4.5.x – 5.2.x. It makes Blender work the way Maya
+A free, open-source (GPL-3.0-or-later) Blender extension, Blender 5.0.x – 5.2.x. It makes Blender work the way Maya
 2022 works for someone who learned 3D in Maya: hotbox and marking menus, Channel Box and Attribute Editor, menu sets,
 shelves and option windows, Maya navigation and selection, and Maya scene concepts (Freeze, History, Center Pivot,
 groups, centimetres, `pCube1`). Tagline: **The whole Maya workflow in Blender, in one install.**

@@ -1,5 +1,12 @@
 # Blender 5.x 호환 (step 118, 153)
 
+> **step 279 (사용자 10-29): 0.7.0 부터 Blender 4.5 지원 중단** — manifest `blender_version_min = "5.0.0"`, 지원 범위
+> 5.0.x – 5.2.x, **0.6.2 가 4.5 용 마지막 버전**. `compat.py` 의 4.5 경로 (Action.fcurves, Bone.select / Bone.hide,
+> UV ISLAND 모드, BMLoopUV.select, media_type 없음, space_time 타임라인, 테마 경로, 4.5 IMAGE 셰이더 등) 와
+> `keymap/ic_4_5.py` 를 지웠다. 키맵 패치 엄격 = 5.2 만 (`compat.STRICT_VERSIONS`). 아래의 4.5 측정·표는 그때의 기록.
+> 남은 4.5 흔적: Maya 레이아웃 템플릿 `startup.blend` 는 아직 4.5 로 저장된 파일 (`compat.LATER_PROPERTIES_TABS` 유지;
+> 다음 `tools/make_startup.py` 실행 때 5.2 로 다시 저장됨).
+
 대상은 그대로 Blender 4.5 LTS (결정 4). 이 문서는 5.0 / 5.1 / 5.2 에서 바뀐 Python API 가 킷에 주는 영향, 대응, 버전별
 측정 결과를 적는다. **버전 분기는 한 곳 — `src/allset/compat.py`** (`test_step118_compat.test_version_checks_only_in_compat`
 가 다른 모듈의 `bpy.app.version` 을 막음). 각 도우미는 4.5 동작을 먼저 하므로 4.5 는 바뀌지 않는다.
