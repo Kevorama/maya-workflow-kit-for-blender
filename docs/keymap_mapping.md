@@ -7,8 +7,8 @@
 
 | 상태 | 개수 |
 |---|---|
-| 구현 | 216 |
-| IC 일치 | 27 |
+| 구현 | 218 |
+| IC 일치 | 25 |
 | 해당 없음 | 181 |
 | macOS 전용 | 71 |
 
@@ -94,8 +94,8 @@
 | t | T | dopeSheetPanel | DopeSheetCenterCurrentTime | Dopesheet: `allset.dope_sheet_key` (action='CENTER') | 구현 |  | #176 |
 | h | H | dopeSheetPanel | DopeSheetLockChannel | Dopesheet: `allset.dope_sheet_key` (action='LOCK') | 구현 |  | #177 |
 | j | J | dopeSheetPanel | DopeSheetUnlockChannel | Dopesheet: `allset.dope_sheet_key` (action='UNLOCK') | 구현 |  | #178 |
-| a | A | graphEditor | GraphEditorFrameAll | Graph Editor: `graph.view_all` | IC 일치 |  | #182 |
-| f | F | graphEditor | GraphEditorFrameSelected | Graph Editor: `graph.view_selected` | IC 일치 |  | #183 |
+| a | A | graphEditor | GraphEditorFrameAll | Graph Editor: `allset.graph_frame` (mode='ALL') | 구현 | 보이는 커브 전체 (구간 제어 다각형 포함), 시간 10 % / 값 25 % 여백 | #182 |
+| f | F | graphEditor | GraphEditorFrameSelected | Graph Editor: `allset.graph_frame` (mode='SELECTED') | 구현 | 선택 키 + 양쪽 구간 (선택 없으면 전체), 시간 10 % / 값 25 % 여백 | #183 |
 | g | G | graphEditor | GraphEditorFramePlaybackRange | Graph Editor: `anim.scene_range_frame`; Screen: `allset.repeat_last` | 구현 | 재생 범위 (preview 켜져 있으면 그 범위) 로 가로 맞춤 | #184 |
 | t | T | graphEditor | GraphEditorFrameCenterView | Graph Editor: `allset.graph_center_time` | 구현 | 현재 시간을 가운데로 (가로만, 확대 그대로) | #185 |
 | 1 | ONE | graphEditor | GraphEditorAbsoluteView | Graph Editor: `allset.graph_view_mode` (mode='ABSOLUTE') | 구현 | Normalize 끔 | #186 |
@@ -338,7 +338,7 @@
 | Right | RIGHT_ARROW | nodeEditorPanel | NodeEditorPickWalkRight | — | 해당 없음 | Maya Node Editor 표시·탐색 (Blender 노드 편집기에 같은 기능 없음 / Blender 키 그대로) | #541 |
 | Left | LEFT_ARROW | nodeEditorPanel | NodeEditorPickWalkLeft | — | 해당 없음 | Maya Node Editor 표시·탐색 (Blender 노드 편집기에 같은 기능 없음 / Blender 키 그대로) | #542 |
 | Ctrl+c | Ctrl+C | nodeEditorPanel | NodeEditorCopy | Node Editor: `node.clipboard_copy` | IC 일치 |  | #543 |
-| Ctrl+x | Ctrl+X | nodeEditorPanel | NodeEditorCut | — | 해당 없음 | Maya Node Editor 표시·탐색 (Blender 노드 편집기에 같은 기능 없음 / Blender 키 그대로) | #544 |
+| Ctrl+x | Ctrl+X | nodeEditorPanel | NodeEditorCut | Node Editor: `node.delete_copy_reconnect` | 해당 없음 | Maya Node Editor 표시·탐색 (Blender 노드 편집기에 같은 기능 없음 / Blender 키 그대로) | #544 |
 | Ctrl+v | Ctrl+V | nodeEditorPanel | NodeEditorPaste | Node Editor: `node.clipboard_paste` | IC 일치 |  | #545 |
 | Cmd+c | Oskey+C | nodeEditorPanel | NodeEditorCopy | — | macOS 전용 | Cmd 키 바인딩 (Windows 해당 없음) | #548 |
 | Cmd+x | Oskey+X | nodeEditorPanel | NodeEditorCut | — | macOS 전용 | Cmd 키 바인딩 (Windows 해당 없음) | #549 |
@@ -430,8 +430,8 @@
 | Ctrl+8 | Ctrl+EIGHT | sculptMeshCache | SetMeshSprayTool | Sculpt: `brush.asset_activate` (asset_library_type='ESSENTIALS', relative_asset_identifier='brushes/essentials_brushes-mesh_sculpt.blend/Brush/Draw Sharp') | 구현 | Draw Sharp (Blender 에 스탬프 스프레이 없음, 가장 가까운 것) | #656 |
 | Ctrl+9 | Ctrl+NINE | sculptMeshCache | SetMeshRepeatTool | Sculpt: `brush.asset_activate` (asset_library_type='ESSENTIALS', relative_asset_identifier='brushes/essentials_brushes-mesh_sculpt.blend/Brush/Layer') | 구현 | Layer (Blender 에 반복 스탬프 없음, 가장 가까운 것) | #657 |
 | f | F | sculptMeshCache | SculptMeshFrame | 3D View: `allset.frame` (selected=True) | 구현 |  | #659 |
-| b | B | sculptMeshCache | SculptMeshActivateBrushSize / SculptMeshDeactivateBrushSize (release) | Sculpt: `wm.radial_control` (data_path_primary='tool_settings.sculpt.brush.size', data_path_secondary='tool_settings.unified_paint_settings.size', use_secondary='tool_settings.unified_paint_settings.use_unified_size', rotation_path='tool_settings.sculpt.brush.texture_slot.angle', color_path='tool_settings.sculpt.brush.cursor_color_add', fill_color_path='', fill_color_override_path='', fill_color_override_test_path='', zoom_path='', image_id='tool_settings.sculpt.brush', secondary_tex=False); 3D View: `allset.tap_hold` (binding='soft_select') | 구현 | 크기 드래그; IC 의 B 브러시 선반 제거 | #661 |
-| m | M | sculptMeshCache | SculptMeshActivateBrushStrength / SculptMeshDeactivateBrushStrength (release) | Sculpt: `wm.radial_control` (data_path_primary='tool_settings.sculpt.brush.strength', data_path_secondary='tool_settings.unified_paint_settings.strength', use_secondary='tool_settings.unified_paint_settings.use_unified_strength', rotation_path='tool_settings.sculpt.brush.texture_slot.angle', color_path='tool_settings.sculpt.brush.cursor_color_add', fill_color_path='', fill_color_override_path='', fill_color_override_test_path='', zoom_path='', image_id='tool_settings.sculpt.brush', secondary_tex=False) | 구현 | 세기 드래그 | #662 |
+| b | B | sculptMeshCache | SculptMeshActivateBrushSize / SculptMeshDeactivateBrushSize (release) | Sculpt: `wm.radial_control` (data_path_primary='tool_settings.sculpt.brush.size', data_path_secondary='tool_settings.sculpt.unified_paint_settings.size', use_secondary='tool_settings.sculpt.unified_paint_settings.use_unified_size', rotation_path='tool_settings.sculpt.brush.texture_slot.angle', color_path='tool_settings.sculpt.brush.cursor_color_add', fill_color_path='', fill_color_override_path='', fill_color_override_test_path='', zoom_path='', image_id='tool_settings.sculpt.brush', secondary_tex=False); 3D View: `allset.tap_hold` (binding='soft_select') | 구현 | 크기 드래그; IC 의 B 브러시 선반 제거 | #661 |
+| m | M | sculptMeshCache | SculptMeshActivateBrushStrength / SculptMeshDeactivateBrushStrength (release) | Sculpt: `wm.radial_control` (data_path_primary='tool_settings.sculpt.brush.strength', data_path_secondary='tool_settings.sculpt.unified_paint_settings.strength', use_secondary='tool_settings.sculpt.unified_paint_settings.use_unified_strength', rotation_path='tool_settings.sculpt.brush.texture_slot.angle', color_path='tool_settings.sculpt.brush.cursor_color_add', fill_color_path='', fill_color_override_path='', fill_color_override_test_path='', zoom_path='', image_id='tool_settings.sculpt.brush', secondary_tex=False) | 구현 | 세기 드래그 | #662 |
 | b | B | texSculptCacheContext | TexSculptActivateBrushSize / TexSculptDeactivateBrushSize (release) | — | 해당 없음 | UV 조각 도구 없음 (Blender UV Sculpt 는 브러시 크기 F) | #664 |
 | m | M | texSculptCacheContext | TexSculptActivateBrushStrength / TexSculptDeactivateBrushStrength (release) | — | 해당 없음 | UV 조각 도구 없음 (Blender UV Sculpt 는 브러시 크기 F) | #665 |
 | b | B | Unfold3DBrush | U3DBrushSizeOn / U3DBrushSizeOff (release) | — | 해당 없음 | Unfold3D 브러시 없음 | #667 |

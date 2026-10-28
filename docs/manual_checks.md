@@ -1533,3 +1533,14 @@ Blindspots of audit 16 (`docs/steps/step_210_remaining.md` §4) — expected to 
       their two axes; Ctrl+drag on an axis handle scales the other two axes.
 - [ ] MMB drag anywhere after picking an axis or plane handle scales that handle at half speed; after the centre it
       scales uniformly. One Ctrl+Z undoes each drag.
+
+## Step 281 — Graph Editor first week (#192)
+
+- [ ] Windows > Animation Editors > Graph Editor with a fresh, unkeyed object selected: the object is listed at once;
+      S over the editor keys its 10 channels and they appear.
+- [ ] The toolbar is its own row under the menu bar; in a narrow (~750 px) editor every tangent type button is still
+      on screen.
+- [ ] Handles show only on selected keys; View > Tangents > Always shows them on every key.
+- [ ] F with a key selected frames the key and both segments touching it; A frames every curve shown.
+- [ ] Shift+middle drag moves keys along time or value only, decided by the first few pixels; plain middle drag
+      lands moved keys on whole frames while Time snap is on.
