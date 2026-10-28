@@ -1525,3 +1525,11 @@ Blindspots of audit 16 (`docs/steps/step_210_remaining.md` §4) — expected to 
       keyboard that has its own software (G Hub / Synapse) running.
 - [ ] Blender 5.1, a 2-button mouse with a wheel: Emulate 3 Button Mouse off → Alt+LMB tumbles; on → no tumble, and the
       welcome dialog / add-on preferences show the Emulate hint.
+
+## Step 275 (#200 Scale manipulator)
+- [ ] Real mouse, Scale tool (R) on a cube: press the yellow centre cube and drag left slowly -> the cube shrinks
+      smoothly to about 0.1 and further (through 0 to a negative scale); drag right -> grows; up / down does nothing.
+- [ ] X / Y / Z handle drags feel the same speed wherever on the handle you press; the XY / YZ / XZ squares scale
+      their two axes; Ctrl+drag on an axis handle scales the other two axes.
+- [ ] MMB drag anywhere after picking an axis or plane handle scales that handle at half speed; after the centre it
+      scales uniformly. One Ctrl+Z undoes each drag.
