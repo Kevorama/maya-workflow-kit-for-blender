@@ -15,7 +15,7 @@ there). (Step 123 note — the README is English-only since step 125.)
 
 For Maya users, in Blender: Maya Workflow Kit brings the hotbox, marking menus, Channel Box, menu sets, shelves and
 option boxes. It changes nothing until you choose Maya; one click on the Maya | Blender switch gives plain Blender back.
-Free and open source (GPL) · Blender 4.5 – 5.2.
+Free and open source (GPL) · Blender 5.0 – 5.2.
 
 [Get it on extensions.blender.org](<listing URL>) · [half-minute tour (video)](docs/distribution/marketing/clips/00_trailer.mp4)
 

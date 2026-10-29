@@ -98,7 +98,7 @@ Each clip's band shows its title (≤ 6 words) and, beat by beat, one line of wh
 | 6 | rigging | Joints, IK and skin weights | From the Rigging shelf: Create Joints by clicking, an IK Handle from shoulder to wrist, Bind Skin, pull the handle, then Paint Skin Weights. |
 | 7 | switch | Maya or Blender, one click | One click on Blender in the top-bar switch gives plain Blender back with the same scene; one click on Maya brings the Maya layout, keys and colors back. |
 
-Trailer end card: name, "for Maya users, in Blender", the final headline "The tutorial ends. Your Channel Box comes back.", "Free and open source · Blender 4.5 – 5.2",
+Trailer end card: name, "for Maya users, in Blender", the final headline "The tutorial ends. Your Channel Box comes back.", "Free and open source · Blender 5.0 – 5.2",
 and "Get it on extensions.blender.org" (placeholder until the listing is live; the listing URL is the platform's, from the id `allset`).
 
 ## Short intro (≤ 40 words)

@@ -39,7 +39,7 @@ Never the same text twice on one day (Reddit spam filter).
 > Installing it changes nothing until you choose Maya. When a tutorial uses Blender's keys, click **Blender** in the
 > top-bar switch, follow along, click **Maya** to come back — same scene (that's the clip).
 >
-> Free, GPL, Blender 4.5 – 5.2: <listing URL> · source: https://github.com/5hyuns/maya-workflow-kit-for-blender
+> Free, GPL, Blender 5.0 – 5.2: <listing URL> · source: https://github.com/5hyuns/maya-workflow-kit-for-blender
 > Feedback from Maya people especially welcome — what's missing for you?
 >
 > (Maya is a trademark of Autodesk; this is an independent project, not affiliated with Autodesk.)
