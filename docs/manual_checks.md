@@ -287,6 +287,7 @@ GUI 자동 테스트(`python tests/gui/run.py`)가 이벤트 순서는 확인한
 - [ ] (step 46) 4 분할: ViewCube 가 마우스가 있는 패널로 옮겨 가는지; 라벨 top -Y / persp / front -Z / side -X 가 각 패널 아래 가운데 (step 176: Maya 카메라 이름 그대로, 축 삼각대는 Blender Z-up 축).
 - [ ] (step 46) 축 삼각이 텀블에 따라 돌고 x/y/z 글자가 Channel Box 축과 맞는지. 카메라 뷰 (Numpad 0) 에서 라벨이 카메라 이름인지.
 - [ ] (step 46) Display > Heads Up Display > Camera Names / View Axis / View Cube 가 모든 뷰에서 켜고 끄는지.
+- [ ] (#209) Preferences > Viewport Navigation = Blender Navigation Gizmo: 열린 모든 Maya 뷰에 Blender 내비 기즈모가 바로 나오고 (Tool Box 열 제외) 기즈모 드래그·줌·팬이 동작하는지; Maya ViewCube 로 되돌리면 큐브가 돌아오는지; 이 상태로 저장한 파일을 Blender 모드에서 열면 뷰가 원래 (기즈모 꺼짐) 인지.
 
 ### Step 47 — 선택 와이어
 
@@ -1039,6 +1040,7 @@ GUI 자동 테스트(`python tests/gui/run.py`)가 이벤트 순서는 확인한
 - [ ] Two curves meeting at a corner: Curves > Fillet makes a round corner curve (filletedCurve1) of radius 1 cm; Curves > Attach joins two curves into curveAattachedCurve1 (both originals kept); Curves > Cut on two crossing curves leaves four pieces.
 - [ ] Curves > Rebuild on a hand-drawn curve: 4 spans, the ends stay where they were; Rebuild ❒ opens Rebuild Curve Options with Number of spans 4.
 - [ ] Curve edit mode, select one CV, Curves > Detach: the curve splits near that CV into two objects.
+- [ ] (#208) EP / CV Curve Tool with a curve and a cube in the scene: hold C while clicking near the curve — the point lands on it, and dragging slides along it; hold V — the point lands on the nearest CV / vertex / pivot; middle drag moves the last point (snaps still work); Ctrl+click with the Status Line snap on places a free point.
 
 ## Step 157 — Graph Editor keys in Maya terms
 - [ ] Graph Editor Select > Only Curve, click a key: the whole curve's keys light up; box-drag over two keys of another curve picks that whole curve too. Select > All, click a key: only that key.
@@ -1544,3 +1546,10 @@ Blindspots of audit 16 (`docs/steps/step_210_remaining.md` §4) — expected to 
 - [ ] F with a key selected frames the key and both segments touching it; A frames every curve shown.
 - [ ] Shift+middle drag moves keys along time or value only, decided by the first few pixels; plain middle drag
       lands moved keys on whole frames while Time snap is on.
+
+## Issue #205 — drag off the manipulator with a Tweak fallback
+
+- [ ] Blender mode: pick Tweak in the tool header's Drag menu with the Move tool, save the file, turn Maya mode on and
+      reopen it. Without pressing W, a drag in empty space or on the mesh away from the manipulator draws a marquee
+      (Shift toggles, Ctrl removes, Ctrl+Shift adds); nothing moves. Same with E / R and in the UV Editor.
+- [ ] Maya mode off: the same drag tweaks again and the header still says Drag: Tweak (the kit didn't change it).
