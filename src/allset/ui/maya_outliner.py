@@ -82,7 +82,36 @@ def _draw(self, context):
     layout.prop(space, "filter_text", text="", icon='VIEWZOOM', placeholder="Search...")
 
 
-classes = (ALLSET_MT_outliner_display, ALLSET_MT_outliner_show, ALLSET_MT_outliner_help)
+class ALLSET_OT_outliner_reveal(bpy.types.Operator):
+    """Expand the Outliner to every selected object and scroll to the lead, like Maya's Reveal Selected (F)"""
+    bl_idname = "allset.outliner_reveal"
+    bl_label = "Reveal Selected"
+
+    @classmethod
+    def poll(cls, context):
+        return context.space_data is not None and context.space_data.type == 'OUTLINER'
+
+    def execute(self, context):
+        # Blender's Show Active only opens the tree to the active object, and does nothing without one (a marquee
+        # leaves none); Maya opens it to the whole selection. Bones: Show Active already reveals the active one.
+        if context.mode != 'OBJECT':
+            return bpy.ops.outliner.show_active()
+        vl = context.view_layer
+        active = vl.objects.active
+        selected = context.selected_objects
+        if not selected:
+            return {'CANCELLED'}
+        lead = active if active in selected else selected[0]
+        try:
+            for ob in [o for o in selected if o.parent is not None and o != lead] + [lead]:
+                vl.objects.active = ob
+                bpy.ops.outliner.show_active()      # the last one (the lead) also scrolls the view to it
+        finally:
+            vl.objects.active = active
+        return {'FINISHED'}
+
+
+classes = (ALLSET_MT_outliner_display, ALLSET_MT_outliner_show, ALLSET_MT_outliner_help, ALLSET_OT_outliner_reveal)
 
 
 def register():

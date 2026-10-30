@@ -116,6 +116,12 @@ def test_group_keys():
         assert _any_event(km, "G", ctrl=True) == ["allset.group"], km
 
 
+# --- Outliner F = Reveal Selected (every selected object, not only the active one) ----------
+
+def test_outliner_reveal_key():
+    assert _any_event("Outliner", "F") == ["allset.outliner_reveal"]
+
+
 # --- Space free, playback on Alt+V ------------------------------------------
 
 def test_space_is_free_for_hotbox():

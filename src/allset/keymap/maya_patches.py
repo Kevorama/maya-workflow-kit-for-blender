@@ -1455,6 +1455,15 @@ def patch_weight_paint_exit(kd):
              {'tool': tool}, first=True, shadows=('3D View',))
 
 
+# --- Outliner F = Maya's Reveal Selected ---------------------------------------------------------------------
+# IC's F (and .) over the Outliner is outliner.show_active: it opens the tree to the active object only. Maya's F
+# opens it to every selected object; . stays Blender's.
+
+def patch_outliner_reveal(kd):
+    kd.remove("Outliner", "outliner.show_active", type="F")
+    _add(kd, "Outliner", "allset.outliner_reveal", make_event("F"))
+
+
 # --- Shift+W / E / R everywhere (Maya global hotkeys) ---------------------------------------------------------
 # Maya's SetKeyTranslate / Rotate / Scale work in any editor (Graph Editor, Dope Sheet, Outliner, Channel Box /
 # Attribute Editor, Time Slider): one item each in "Screen" ({"global_key": True}: passes through outside object /
@@ -1484,7 +1493,7 @@ def patch_emulated_tumble(kd):
              shadows=("Image Paint", "Object Mode", "Pose") if km == "3D View" else (km, "3D View"))
 
 
-PATCHES += (patch_weight_paint_exit, patch_global_set_key, patch_emulated_tumble)
+PATCHES += (patch_weight_paint_exit, patch_global_set_key, patch_outliner_reveal, patch_emulated_tumble)
 
 
 def apply(data):

@@ -373,7 +373,8 @@ ENTRIES = {
     "PasteSelected": _e("KIT", (OBJ, "allset.paste", {}),
                         note="Blender 붙여넣기 + 첫 오브젝트가 lead (Channel Box); Maya 의 pasted_ 접두사는 없음 (이름이 비면 원래 이름)"),
     "outlinerPanel:OutlinerRenameSelectedItem": _e("IC", ("Outliner", "outliner.item_rename", {}), note="활성 행 이름 바꾸기"),
-    "outlinerPanel:OutlinerRevealSelected": _e("IC", ("Outliner", "outliner.show_active", {}), note="선택 항목까지 펼치고 보이기"),
+    "outlinerPanel:OutlinerRevealSelected": _e("KIT", ("Outliner", "allset.outliner_reveal", {}),
+                                                note="선택한 모든 오브젝트까지 펼치고 리드로 스크롤 (Blender Show Active 는 활성 하나만)"),
     # --- step 92: Graph Editor key batch (operators/graph_keys.py) ---
     "graphEditor:GraphEditorFrameCenterView": _e("KIT", ("Graph Editor", "allset.graph_center_time", {}),
                                                  note="현재 시간을 가운데로 (가로만, 확대 그대로)"),
